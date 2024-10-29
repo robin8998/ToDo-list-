@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useTodo } from '../contexts'
 
 function InputForm() {
-  const [addTodo] = useTodo()
+  const {addTodo} = useTodo()
   const [todo,setTodo] = useState('')
 
   const add = (e) =>{
@@ -19,10 +19,10 @@ function InputForm() {
       <input type="text" 
       placeholder='Write todo'
       value={todo}
-      onChange={setTodo((e)=> e.target.value)}
+      onChange={(e)=> setTodo(e.target.value)}
       />
 
-      <button type='submit'></button>
+      <button type='submit'>Add</button>
     </div>
     </form>
   )

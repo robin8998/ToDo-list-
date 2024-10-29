@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
-import { todoProvider } from './contexts'
+import { TodoProvider } from './contexts'
 import './App.css'
+import InputForm from './compents/InputForm'
+import TodoList from './compents/TodoList'
 
 function App() {
   const [todos,setTodos] = useState([])
@@ -31,7 +33,7 @@ function App() {
 
   const deleteTodo = (id) =>{
   setTodos((prev)=> prev.filter((todo)=> (
-    !todo.id === id
+    todo.id !== id
   )))
   }
 
@@ -42,20 +44,24 @@ function App() {
   }
 
   return (
-    <todoProvider value={{todos,addTodo,deleteTodo,updateTodo,toggleComplete}}>
+    <TodoProvider value={{todos,addTodo,deleteTodo,updateTodo,toggleComplete}}>
       <div className='w-full'>
        <div className='w-full'>
         <h1>Add Your Todos List</h1>
         <div>
-          {/* Todo form */}
+          <InputForm/>
         </div>
 
         <div>
-          {/* todo item will come here */}
+          {todos.map((todo)=> (
+            <div key={todo.id}>
+              <TodoList todo={todo} />
+            </div>
+          ))}
         </div>
        </div>
       </div>
-    </todoProvider>
+    </TodoProvider>
   )
 }
 
