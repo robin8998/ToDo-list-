@@ -45,16 +45,18 @@ function App() {
 
   return (
     <TodoProvider value={{todos,addTodo,deleteTodo,updateTodo,toggleComplete}}>
-      <div className='w-full'>
+      <div className='w-full h-screen '>
        <div className='w-full'>
-        <h1>Add Your Todos List</h1>
-        <div>
+        <h1 className='bg-black text-white text-2xl font-bold rounded-xl py-3 '>Add Your Todos List</h1>
+        <div className='my-3'>
           <InputForm/>
         </div>
 
         <div>
           {todos.map((todo)=> (
-            <div key={todo.id}>
+            <div key={todo.id}
+            className='my-3'
+            >
               <TodoList todo={todo} />
             </div>
           ))}
