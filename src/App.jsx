@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { TodoProvider } from './contexts'
 import './App.css'
 import InputForm from './compents/InputForm'
-import TodoList from './compents/TodoList'
+import TodoList from './compents/todoList'
 
 function App() {
   const [todos,setTodos] = useState([])
